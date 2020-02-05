@@ -3,19 +3,19 @@
 ## Portfolio
 
 ---
-### [Project 1 Title](/projects/project1)
+### [Project 1 Title](/project_probation/index)
 This is a short sentence about that particular project.
-[<img src="images/dummy_thumbnail.jpg?raw=true"/>](/projects/project1)
+[<img src="project_probation/LOI_Median_Income_with_Redlining.png?raw=true"/>](/project_probation/index)
 
 ---
-### [Project 2 Title](/projects/project1)
+### [Project 2 Title](/project_probation/index)
 This is a short sentence about that particular project.
-[<img src="images/dummy_thumbnail.jpg?raw=true"/>](/projects/project1)
+[<img src="project_probation/LOI_Transit_Isos.png?raw=true"/>](/project_probation/index)
 
 ---
-### [Project 3 Title](/projects/project1)
+### [Project 3 Title](/project_probation/index)
 This is a short sentence about that particular project.
-[<img src="images/dummy_thumbnail.jpg?raw=true"/>](/projects/project1)
+[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
 
 ---
 
