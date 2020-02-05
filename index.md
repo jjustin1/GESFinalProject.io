@@ -6,6 +6,7 @@
 [Project 1 Title <br>
   <img src="images/dummy_thumbnail.jpg?raw=true"/>
 ](/projects/project1)
+
 ---
 [Project 2 Title](/pdf/sample_presentation.pdf)
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
