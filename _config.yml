@@ -1,10 +1,11 @@
 title: Dillon Mahmoudi # your name (or website title) here
 logo: "/images/dillonma_mappingcapital_purple.png?raw=true" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
+  <strong>Assistant Professor of Geography and Environmental Systems</strong> at University of Maryland, Baltimore County. he/him
   <br><br>
   <strong>Mapping Capital</strong>: how the flows of (more than) capital produce and are produced by uneven geographies.
-  <br><br>
-  <strong>Assistant Professor of Geography and Environmental Systems</strong> at University of Maryland, Baltimore County. he/him
+  
+
   
 theme: jekyll-theme-minimal
 google_analytics: UA-000000-0 # your Google Analytics tracking ID here
