@@ -1,4 +1,4 @@
-This is a demonstration website for GES 486/687. This setup is based on instructions by [https://blog.usejournal.com/@evanca](@evanca) on how to [https://medium.com/@evanca/set-up-your-portfolio-website-in-less-than-10-minutes-with-github-pages-d0efa8ff56fd](Set Up Your Portfolio Website in Less Than 10 Minutes with Github Pages). The base minimal theme has [https://github.com/pages-themes/minimal](excellent) documentation here for customizing.
+This is a demonstration website for GES 486/687. This setup is based on instructions by [Ivanna Kacewica](https://blog.usejournal.com/@evanca) on how to [Set Up Your Portfolio Website in Less Than 10 Minutes with Github Pages](https://medium.com/@evanca/set-up-your-portfolio-website-in-less-than-10-minutes-with-github-pages-d0efa8ff56fd). The base minimal theme has [excellent documentation](https://github.com/pages-themes/minimal) here for customizing.
 
 ## Portfolio
 
