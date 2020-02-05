@@ -2,4 +2,22 @@
 ---
 
 @import "";
-@import "override.css"
+
+a {
+ color:#6a0dad;
+ text-decoration:none
+}
+a:hover,
+a:focus {
+ color:#6a0dad;
+ font-weight:bold
+}
+a small {
+ font-size:11px;
+ color:#6a0dad;
+ margin-top:-0.3em;
+ display:block
+}
+a:hover small {
+ color:#6a0dad
+}
