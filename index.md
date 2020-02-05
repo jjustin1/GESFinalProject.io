@@ -3,17 +3,17 @@
 ## Portfolio
 
 ---
-[Project 1 Title](/projects/project1)
+### [Project 1 Title](/projects/project1)
 This is a short sentence about that particular project.
 [<img src="images/dummy_thumbnail.jpg?raw=true"/>](/projects/project1)
 
 ---
-[Project 1 Title](/projects/project1)
+### [Project 2 Title](/projects/project1)
 This is a short sentence about that particular project.
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
 ---
-[Project 1 Title](/projects/project1)
+### [Project 3 Title](/projects/project1)
 This is a short sentence about that particular project.
 <img src="images/dummy_thumbnail.jpg?raw=true"/>
 
