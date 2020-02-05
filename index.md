@@ -10,12 +10,12 @@ This is a short sentence about that particular project.
 ---
 ### [Project 2 Title](/projects/project1)
 This is a short sentence about that particular project.
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[<img src="images/dummy_thumbnail.jpg?raw=true"/>](/projects/project1)
 
 ---
 ### [Project 3 Title](/projects/project1)
 This is a short sentence about that particular project.
-<img src="images/dummy_thumbnail.jpg?raw=true"/>
+[<img src="images/dummy_thumbnail.jpg?raw=true"/>](/projects/project1)
 
 ---
 
