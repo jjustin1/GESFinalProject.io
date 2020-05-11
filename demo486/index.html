@@ -60,18 +60,25 @@
             			<option value="yes">Yes</option>
             		</select>
             	</form>
+
+                <!-- Notice that I moved the abstract below -->
             	<div id="abstract">
 					<img style="max-width:260px; height:auto" id="hijack" src="https://media.giphy.com/media/NuBHQY1PfaXU4/giphy.gif"><br>
-					<div id="hoverdirections">Hover over a block group to see more.</div>
-					<div id="hoversparklines">
+					
+                    <div id="hoverdirections">Hover over a block group to see more.</div>
+					
+                    <div id="hoversparklines">
 						<h5>Current Block Group</h5>
 						<div class="sparklabel">Black (%):</div> <span id="blacksparkline"> </span><br>
 						<div class="sparklabel">Hisp (%):</div>  <span id="hispsparkline"> </span>
 					</div>
-					<h5>Demo Chart</h5>
-					<canvas id="demoChart" width="260" height="260"></canvas>
-					<h5>Data Chart</h5>
-					<canvas id="dataChart" width="260" height="260"></canvas>
+					
+                    <h5>Demo Chart</h5>
+					<canvas id="demoChart" width="260" height="200"></canvas>
+					
+                    <h5>Data Chart</h5>
+                    <p id="data_population"></p>
+					<canvas id="dataChart" width="260" height="200"></canvas>
             	</div>
         	</div>
         </div>
@@ -104,6 +111,10 @@
                 fillOpacity: 1
               });
             }
+
+            /* DILLON MADE THESE EDITS BELOW */
+
+            /* Make the sparklines */
             $("#blacksparkline").sparkline([0,32,62,94,100], {
                 type: 'box',
                 raw: false,
@@ -124,7 +135,10 @@
                 targetColor: '#ff0000',
                 disableTooltips: true});
             
+            /* Hide the hover directions */
             $("#hoverdirections").hide()
+
+            /* Show the sparklines */
             $("#hoversparklines").show()
 
             var new_data = {
@@ -142,7 +156,7 @@
 			myDataChart.data = new_data;
 			myDataChart.update();
 
-
+            $('#data_population').html(e.target.feature.properties['popE']+" people");
         }
         var map = L.map('map', {
             zoomControl:true, maxZoom:28, minZoom:1
@@ -468,6 +482,8 @@
             };
             /* abstract.addTo(map); */
         setBounds();
+
+        /* ADDED FOR THE IMAGE CHANGE */
         $("#acc_type").change(function() {
             var gif = "https://media.giphy.com/media/NuBHQY1PfaXU4/giphy.gif";
             if ($('#acc_type').val() == "yes") {gif = "https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif";}
@@ -529,7 +545,7 @@
 			    ]
 			};
 			var myDataChart = new Chart(ctx_data, {
-			    type: 'doughnut',
+			    type: 'pie',
 			    data: data,
                 options: Chart.defaults.doughnut,
 			});
