@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css">
+        <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/Chart.css">
+        <style>
+        html, body {
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0;
+        }
+        #map {
+            width: calc(100% - 300px);
+            height: 100%;
+            padding: 0;
+            margin: 0;
+            display:inline-block;
+        }
+        #notmap {
+        	width:300px;
+        	float:right;
+        	display:inline-block;
+        	font-family: sans-serif;
+        }
+        #notmap-container {
+        	margin: 20px;
+        }
+        #abstract {
+            min-height:20px;
+            height:auto !important;
+            height:20px;
+            width:auto !important;
+            width:200px !important;
+            min-width: 200px;
+        }
+        .sparklabel {
+        	width:80px;
+        	display:inline-block;
+        }
+        </style>
+        <title>Black and Hispanic Share of Baltimore's Population</title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <div id="notmap">
+        	<div id="notmap-container">
+            	<h2>Black and Hispanic Share of Baltimore's Population</h2>
+            	<form id="account" action="" method="post">
+            		<select id = "acc_type">
+            			<option value="no">No</option>
+            			<option value="yes">Yes</option>
+            		</select>
+            	</form>
+            	<div id="abstract">
+					<img style="max-width:260px; height:auto" id="hijack" src="https://media.giphy.com/media/NuBHQY1PfaXU4/giphy.gif"><br>
+					<div id="hoverdirections">Hover over a block group to see more.</div>
+					<div id="hoversparklines">
+						<h5>Current Block Group</h5>
+						<div class="sparklabel">Black (%):</div> <span id="blacksparkline"> </span><br>
+						<div class="sparklabel">Hisp (%):</div>  <span id="hispsparkline"> </span>
+					</div>
+					<h5>Demo Chart</h5>
+					<canvas id="demoChart" width="260" height="260"></canvas>
+					<h5>Data Chart</h5>
+					<canvas id="dataChart" width="260" height="260"></canvas>
+            	</div>
+        	</div>
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/BlackPopulationPercentage_1.js"></script>
+        <script src="data/baltimorecity_2.js"></script>
+        <script src="js/jquery-3.5.0.min.js"></script>
+        <script src="js/jquery.sparkline.min.js"></script>
+        <script src="js/Chart.js"></script>
+        <script>
+        var highlightLayer;
+        function highlightFeature(e) {
+            highlightLayer = e.target;
+
+            if (e.target.feature.geometry.type === 'LineString') {
+              highlightLayer.setStyle({
+                color: '#ffff00',
+              });
+            } else {
+              highlightLayer.setStyle({
+                fillColor: '#ffff00',
+                fillOpacity: 1
+              });
+            }
+            $("#blacksparkline").sparkline([0,32,62,94,100], {
+                type: 'box',
+                raw: false,
+                target: e.target.feature.properties['pop_blackshare'],
+                boxFillColor: '#fefefe',
+                medianColor: '#666666',
+                targetColor: '#ff0000',
+                showOutliers: false,
+                disableTooltips: true
+            });
+            $("#hispsparkline").sparkline([0,1,5,9,100], {
+                type: 'box',
+                raw: false,
+                target: e.target.feature.properties['pop_hispshare'],
+                showOutliers: false,
+                boxFillColor: '#fefefe',
+                medianColor: '#666666',
+                targetColor: '#ff0000',
+                disableTooltips: true});
+            
+            $("#hoverdirections").hide()
+            $("#hoversparklines").show()
+
+            var new_data = {
+			    datasets: [{
+			        data: [e.target.feature.properties['pop_hispltxE'], 
+                        e.target.feature.properties['pop_nhblackE'], 
+                        e.target.feature.properties['pop_nhwhiteE'],
+                        e.target.feature.properties['pop_nhasianXE'],
+                        e.target.feature.properties['pop_nhotherXE']],
+                    backgroundColor: ['#386cb0', '#beaed4', '#7fc97f', '#e78ac3', '#fdc086']
+			    }],
+			    // These labels appear in the legend and in the tooltips when hovering different arcs
+			    labels: ['Hispanic','Black','White','Asian','Other']
+			};
+			myDataChart.data = new_data;
+			myDataChart.update();
+
+
+        }
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[39.19282642399667,-76.73889605099552],[39.376575371574916,-76.50207594900454]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        map.createPane('pane_StamenTonerLite_0');
+        map.getPane('pane_StamenTonerLite_0').style.zIndex = 400;
+        var layer_StamenTonerLite_0 = L.tileLayer('http://a.tile.stamen.com/toner-lite/{z}/{x}/{y}.png', {
+            pane: 'pane_StamenTonerLite_0',
+            opacity: 1.0,
+            attribution: '',
+            minZoom: 1,
+            maxZoom: 28,
+            minNativeZoom: 0,
+            maxNativeZoom: 22
+        });
+        layer_StamenTonerLite_0;
+        map.addLayer(layer_StamenTonerLite_0);
+        function pop_BlackPopulationPercentage_1(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GEOID'] !== null ? autolinker.link(feature.properties['GEOID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['popE'] !== null ? autolinker.link(feature.properties['popE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['popM'] !== null ? autolinker.link(feature.properties['popM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhwhiteE'] !== null ? autolinker.link(feature.properties['pop_nhwhiteE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhwhiteM'] !== null ? autolinker.link(feature.properties['pop_nhwhiteM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhblackE'] !== null ? autolinker.link(feature.properties['pop_nhblackE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhblackM'] !== null ? autolinker.link(feature.properties['pop_nhblackM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhamindE'] !== null ? autolinker.link(feature.properties['pop_nhamindE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhamindM'] !== null ? autolinker.link(feature.properties['pop_nhamindM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhasianE'] !== null ? autolinker.link(feature.properties['pop_nhasianE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhasianM'] !== null ? autolinker.link(feature.properties['pop_nhasianM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhhwnpiE'] !== null ? autolinker.link(feature.properties['pop_nhhwnpiE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhhwnpiM'] !== null ? autolinker.link(feature.properties['pop_nhhwnpiM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhotherE'] !== null ? autolinker.link(feature.properties['pop_nhotherE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhotherM'] !== null ? autolinker.link(feature.properties['pop_nhotherM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhtwomrE'] !== null ? autolinker.link(feature.properties['pop_nhtwomrE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhtwomrM'] !== null ? autolinker.link(feature.properties['pop_nhtwomrM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_hispltxE'] !== null ? autolinker.link(feature.properties['pop_hispltxE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_hispltxM'] !== null ? autolinker.link(feature.properties['pop_hispltxM'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_nhasianXE'] !== null ? autolinker.link(feature.properties['pop_nhasianXE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">pop_nhotherXE</th>\
+                        <td>' + (feature.properties['pop_nhotherXE'] !== null ? autolinker.link(feature.properties['pop_nhotherXE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_blackshare'] !== null ? autolinker.link(feature.properties['pop_blackshare'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['pop_hispshare'] !== null ? autolinker.link(feature.properties['pop_hispshare'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_BlackPopulationPercentage_1_0(feature) {
+            if (feature.properties['pop_blackshare'] >= 0.000000 && feature.properties['pop_blackshare'] <= 20.000000 ) {
+                return {
+                pane: 'pane_BlackPopulationPercentage_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(247,252,245,0.75)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['pop_blackshare'] >= 20.000000 && feature.properties['pop_blackshare'] <= 40.000000 ) {
+                return {
+                pane: 'pane_BlackPopulationPercentage_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(202,234,195,0.75)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['pop_blackshare'] >= 40.000000 && feature.properties['pop_blackshare'] <= 60.000000 ) {
+                return {
+                pane: 'pane_BlackPopulationPercentage_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(123,200,124,0.75)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['pop_blackshare'] >= 60.000000 && feature.properties['pop_blackshare'] <= 80.000000 ) {
+                return {
+                pane: 'pane_BlackPopulationPercentage_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(42,146,74,0.75)',
+                interactive: true,
+            }
+            }
+            if (feature.properties['pop_blackshare'] >= 80.000000 && feature.properties['pop_blackshare'] <= 100.000000 ) {
+                return {
+                pane: 'pane_BlackPopulationPercentage_1',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.75)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(0,68,27,0.75)',
+                interactive: true,
+            }
+            }
+        }
+        map.createPane('pane_BlackPopulationPercentage_1');
+        map.getPane('pane_BlackPopulationPercentage_1').style.zIndex = 401;
+        map.getPane('pane_BlackPopulationPercentage_1').style['mix-blend-mode'] = 'normal';
+        var layer_BlackPopulationPercentage_1 = new L.geoJson(json_BlackPopulationPercentage_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_BlackPopulationPercentage_1',
+            layerName: 'layer_BlackPopulationPercentage_1',
+            pane: 'pane_BlackPopulationPercentage_1',
+            onEachFeature: pop_BlackPopulationPercentage_1,
+            style: style_BlackPopulationPercentage_1_0,
+        });
+        bounds_group.addLayer(layer_BlackPopulationPercentage_1);
+        map.addLayer(layer_BlackPopulationPercentage_1);
+        function pop_baltimorecity_2(feature, layer) {
+            layer.on({
+                mouseout: function(e) {
+                    for (i in e.target._eventParents) {
+                        e.target._eventParents[i].resetStyle(e.target);
+                    }
+                },
+                mouseover: highlightFeature,
+            });
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['STATEFP'] !== null ? autolinker.link(feature.properties['STATEFP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNTYFP'] !== null ? autolinker.link(feature.properties['COUNTYFP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNTYNS'] !== null ? autolinker.link(feature.properties['COUNTYNS'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['GEOID'] !== null ? autolinker.link(feature.properties['GEOID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAME'] !== null ? autolinker.link(feature.properties['NAME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['NAMELSAD'] !== null ? autolinker.link(feature.properties['NAMELSAD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LSAD'] !== null ? autolinker.link(feature.properties['LSAD'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CLASSFP'] !== null ? autolinker.link(feature.properties['CLASSFP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MTFCC'] !== null ? autolinker.link(feature.properties['MTFCC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CSAFP'] !== null ? autolinker.link(feature.properties['CSAFP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['CBSAFP'] !== null ? autolinker.link(feature.properties['CBSAFP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['METDIVFP'] !== null ? autolinker.link(feature.properties['METDIVFP'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['FUNCSTAT'] !== null ? autolinker.link(feature.properties['FUNCSTAT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ALAND'] !== null ? autolinker.link(feature.properties['ALAND'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['AWATER'] !== null ? autolinker.link(feature.properties['AWATER'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INTPTLAT'] !== null ? autolinker.link(feature.properties['INTPTLAT'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INTPTLON'] !== null ? autolinker.link(feature.properties['INTPTLON'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_baltimorecity_2_0() {
+            return {
+                pane: 'pane_baltimorecity_2',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 4.0, 
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_baltimorecity_2');
+        map.getPane('pane_baltimorecity_2').style.zIndex = 402;
+        map.getPane('pane_baltimorecity_2').style['mix-blend-mode'] = 'normal';
+        var layer_baltimorecity_2 = new L.geoJson(json_baltimorecity_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_baltimorecity_2',
+            layerName: 'layer_baltimorecity_2',
+            pane: 'pane_baltimorecity_2',
+            onEachFeature: pop_baltimorecity_2,
+            style: style_baltimorecity_2_0,
+        });
+        bounds_group.addLayer(layer_baltimorecity_2);
+        map.addLayer(layer_baltimorecity_2);
+            var title = new L.Control();
+            title.onAdd = function (map) {
+                this._div = L.DomUtil.create('div', 'info');
+                this.update();
+                return this._div;
+            };
+            title.update = function () {
+                this._div.innerHTML = '<h4>Black and Hispanic Share of Baltimore\'s Population</h4>\
+                <form id="account" action="" method="post">\
+                <select id = "acc_type">\
+                <option value="area">Area</option>\
+                <option value="height">Height</option>\
+                </select>\
+                </form>';
+            };
+            /* title.addTo(map); */
+            var abstract = new L.Control({'position':'topright'});
+            abstract.onAdd = function (map) {
+                this._div = L.DomUtil.create('div',
+                'leaflet-control leaflet-bar abstract');
+                this._div.id = 'abstract'
+
+                    abstract.show();
+                    return this._div;
+                };
+                abstract.show = function () {
+                    this._div.classList.remove("abstract");
+                    this._div.classList.add("abstractUncollapsed");
+                    this._div.innerHTML = '<img id="hijack" src=""><br>Black (%): <span id="blacksparkline"> </span><br> Hisp (%): <span id="hispsparkline"> </span>';
+            };
+            /* abstract.addTo(map); */
+        setBounds();
+        $("#acc_type").change(function() {
+            var gif = "https://media.giphy.com/media/NuBHQY1PfaXU4/giphy.gif";
+            if ($('#acc_type').val() == "yes") {gif = "https://media.giphy.com/media/3ohzdIuqJoo8QdKlnW/giphy.gif";}
+            else if ($('#acc_type').val() == "no") {gif = "https://media.giphy.com/media/2A7wAWGp9HUjbK6BJU/giphy.gif";}
+            $('#hijack').attr("src", gif);
+        });
+        $("#hoversparklines").hide()
+        </script>
+        <script>
+        	var ctx = $("#demoChart");
+			var myChart = new Chart(ctx, {
+			    type: 'bar',
+			    data: {
+			        labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
+			        datasets: [{
+			            label: '# of Votes',
+			            data: [12, 19, 3, 5, 2, 3],
+			            backgroundColor: [
+			                'rgba(255, 99, 132, 0.2)',
+			                'rgba(54, 162, 235, 0.2)',
+			                'rgba(255, 206, 86, 0.2)',
+			                'rgba(75, 192, 192, 0.2)',
+			                'rgba(153, 102, 255, 0.2)',
+			                'rgba(255, 159, 64, 0.2)'
+			            ],
+			            borderColor: [
+			                'rgba(255, 99, 132, 1)',
+			                'rgba(54, 162, 235, 1)',
+			                'rgba(255, 206, 86, 1)',
+			                'rgba(75, 192, 192, 1)',
+			                'rgba(153, 102, 255, 1)',
+			                'rgba(255, 159, 64, 1)'
+			            ],
+			            borderWidth: 1
+			        }]
+			    },
+			    options: {
+			        scales: {
+			            yAxes: [{
+			                ticks: {
+			                    beginAtZero: true
+			                }
+			            }]
+			        }
+			    }
+			});
+        </script>
+        <script>
+        	var ctx_data = $("#dataChart");
+        	var data = {
+			    datasets: [{
+			        data: [10, 20, 30, 40, 50],
+                    backgroundColor: ['#ff0000', '#ffff00', '#00ff00', '#00ffff', '#0000ff']
+			    }],
+
+			    // These labels appear in the legend and in the tooltips when hovering different arcs
+			    labels: [
+			        'Red','Yellow','Green','Shutup','Blue'
+			    ]
+			};
+			var myDataChart = new Chart(ctx_data, {
+			    type: 'doughnut',
+			    data: data,
+                options: Chart.defaults.doughnut,
+			});
+        </script>
+    </body>
+</html>
