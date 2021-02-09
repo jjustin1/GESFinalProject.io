@@ -3,12 +3,12 @@
 ## Portfolio
 
 ---
-### [Project 1 Title](/project_probation/index)
+### [Probation Project](/project_probation/index)
 This is a short sentence about that particular project.
 [<img src="project_probation/LOI_Median_Income_with_Redlining.png?raw=true"/>](/project_probation/index)
 
 ---
-### [Project 2 Title](/project_probation/index)
+### [PNW Project](/project_pnw/index)
 This is a short sentence about that particular project.
 [<img src="project_probation/LOI_Transit_Isos.png?raw=true"/>](/project_probation/index)
 
