@@ -110,6 +110,6 @@ bmore_t_worktime <- st_transform(bmore_t_worktime, 3857) # reproject into web-me
 ## Write to file
 Here I'm going to use ggplot. Not that I specified the CRS (projection)
 ```{r writefile}
-st_write(bmore_t_worktime_2019, "bmore_t_worktime_diff.geojson")
+st_write(bmore_t_worktime, "bmore_t_worktime_diff.geojson")
 ```
 
