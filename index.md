@@ -1,21 +1,48 @@
-**Note:** This is an instructional/demonstration website for GES 486/687 Advanced GIS. This setup is based on instructions by [Ivanna Kacewica](https://blog.usejournal.com/@evanca) on how to [Set Up Your Portfolio Website in Less Than 10 Minutes with Github Pages](https://medium.com/@evanca/set-up-your-portfolio-website-in-less-than-10-minutes-with-github-pages-d0efa8ff56fd). The base minimal theme has [excellent documentation](https://github.com/pages-themes/minimal) for customizing.
 
-## Portfolio
+## Single-Family Zoning (SFZ) Map Portfolio 
 
 ---
-### [Probation Project](/project_probation/index)
-This is a short sentence about that particular project.
+### [Full Single-Family Zoning Map](/project_probation/index)
+This map shows the full display for all single-family zoned land in Central Maryland (measured by land-use data) 
 [<img src="project_probation/LOI_Median_Income_with_Redlining.png?raw=true"/>](/project_probation/index)
 
 ---
-### [PNW Project](/project_pnw/index)
-This is a short sentence about that particular project.
+### [Baltimore City SFZ Map](/project_probation/index)
+This map displays where single-family zoning restrictions exist in Baltimore City 
+[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+
+
+---
+### [Baltimore County SFZ Map](/project_probation/index)
+This map displays where single-family zoning restrictions exist in Baltimore County
+[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+
+---
+
+### [Anne Arundel County SFZ Map](/project_probation/index)
+This map displays where single-family zoning restrictions exist in Anne Arundel County
+[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+
+---
+### [Howard County Zoning Map](/project_pnw/index)
+This map displays where single-family zoning restrictions exist in Howard County
 [<img src="project_probation/LOI_Transit_Isos.png?raw=true"/>](/project_probation/index)
 
 ---
-### [Project 3 Title](/project_probation/index)
-This is a short sentence about that particular project.
+### [Carroll County SFZ Map](/project_probation/index)
+This map displays where single-family zoning restrictions exist in Carroll County
 [<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+
+---
+### [Harford County SFZ Map](/project_probation/index)
+This map displays where single-family zoning restrictions exist in Harford County
+[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+
+---
+### [Queen Anne's County SFZ Map](/project_probation/index)
+This map displays where single-family zoning restrictions exist in Queen Anne's County
+[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+
 
 ---
 
