@@ -4,7 +4,7 @@
 ---
 ### [Full Single-Family Zoning Map](/project_probation/index)
 This map shows the full display for all single-family zoned land in Central Maryland (measured by land-use data) 
-[<images/Full Single Family Zoning Map resized.png"/>](/project_probation/index)
+[<img src="images/Full Single-Family Zoning Map BMSA.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Baltimore City SFZ Map](/project_probation/index)
