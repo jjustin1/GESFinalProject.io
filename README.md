@@ -1,40 +1,23 @@
-## Dillon Mahmoudi
-The deployed front-end of this repository is accessible at [dillonma.github.io](https://dillonma.github.io/)
+# Justin Johnson GES Final Project 
 
-My website is [dillonm.io](https://dillonm.io)
 
-**This is an instructional/demonstration website for GES 486/687 Advanced GIS.** 
-
-This setup is based on instructions by [Ivanna Kacewica](https://blog.usejournal.com/@evanca) on how to [Set Up Your Portfolio Website in Less Than 10 Minutes with Github Pages](https://medium.com/@evanca/set-up-your-portfolio-website-in-less-than-10-minutes-with-github-pages-d0efa8ff56fd). The base minimal theme has [excellent documentation](https://github.com/pages-themes/minimal) for customizing.
-
-## Markdown Reference
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+## **This is a porfolio of zoning maps created to showcase my final project in GES 687.** 
 
 ___
 
-References:
+### Purpose of Project 
 
-[1] Jekyll theme "Minimal" for GitHub Pages: https://github.com/pages-themes/minimal (CC0 1.0 Universal License)
-<br>[2] Dummy photo via: https://pixabay.com/photos/man-male-adult-person-caucasian-1209494/ (Pixabay License)
-<br>[3] Dummy thumbnail image created by rawpixel.com: https://www.freepik.com/free-vector/set-elements-infographic_2807573.htm (Standard Freepik License)
+The purpose of this project was to measure the effects that single-family zoning has on community characteristics in the Baltimore Metropolitan Statistical Region (BMSA), also known as Central Maryland. 
+
+___
+
+### Data 
+Getting data for this project consisted of taking data on detailed zoning maps as well as community demographics for individual census tracts. Zoning data was obtained from the Maryland Department of Assesments and Taxation (SDAT), while demographic data was taken from the American Community Survey (ACS). Data for zoning maps was manipulated in QGIS to obtain estimates for where single-family zoning restrictions were present, and community demographic data was manipulated in R to get estimates for median income, educational attainment, racial populations, etc. 
+
+
+
+
+___
+
+
+
