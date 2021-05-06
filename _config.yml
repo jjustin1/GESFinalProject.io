@@ -1,9 +1,9 @@
 title: Justin Johnson # your name (or website title) here
 logo: "images/IMG-3547.jpg" # your photo (or logo) here
 description: > # your text below (remove <br> elements if you don't need line breaks)
-  <strong>Graduate Student at University of Maryland, Baltimore County.</strong> 
+ <strong>Graduate Student in Economic Policy Analysis</strong> at University of Maryland, Baltimore County. he/him
   <br><br>
-  <strong>Mapping Single-Family Zoning In Central Maryland</strong>: Measuring how widespread single-family zoning restrictions are in the Baltimore Metropolitan Statisitcal Area.
+  <strong>Mapping Single Family Zoning</strong>: Showing where single-family zoning restrictions are implemented in the Baltimore Region 
   
 
 theme: jekyll-theme-minimal
