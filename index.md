@@ -13,7 +13,7 @@ This map displays where single-family zoning restrictions exist in Baltimore Cit
 
 
 ---
-### [Single-Family Zoning vs Median Income](/project_probation/index)
+### [Baltimore City SFZ Map](/project_probation/index)
 This map displays the relationship between the proportion of single-family zoned properties in a census tract and the median household income of that area.
 [<img src="images/Baltimorecitymap.png"/>](/project_probation/ind
 
