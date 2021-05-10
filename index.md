@@ -4,13 +4,6 @@ This page is designed to showcase the portfolio of maps I created for my final p
 
 ---
 
-### Analysis
-
-Overall, the results of my research suggest that single-family zoning restrictions are not highly prevalent in the Baltimore region. Despite this, these zoning policies are still associated with higher income areas, indicating that these zoning policies significantly affect the income distributions of various communities in the region. Regression analysis using OLS and Fixed effects was also performed to gain a more in-depth understanding of the effect that single-family zoning has on communities in the region. It was found that single-family zoning not only singnificantly shifted the income distribution towards those with the highest incomes, but it was also found that these zoning policies were also associated with higher median house-prices, and interestingly, lower educational attainment. To view more information about this research 
-<a href="https://github.com/jjustin1/jjustin1capstonepaper/blob/main/JustinJohnsonCapstoneGithub.pdf" target="_blank">Click Here.</a>
-
----
-
 ### Methodology
 
 Obtaining data and creating maps for this project came from multiple sources. Obtaining data on zoning and community demographics were taken from the Maryland Department of Planning and the American Community Survey. Shapefiles on zoning was taken using the State Department of Assessments and Taxation (SDAT) dataset which contains data on most maryland properties detailing zoning and land use codes. Community demographics such as race, income, and education were taken from the ACS survey, an annual survey that obtains data on millions of U.S. households. ACS data was loaded into R statistical software using the tidycensus program, and was then transformed into shapefiles that could be loaded into QGIS Mapping software. Once these shapefiles were created, both the demographic data and zoning maps data were loaded into QGIS and transformed to create the land-use and chloropleth maps shown above. 
@@ -70,8 +63,12 @@ This map displays where single-family zoning restrictions exist in Harford Count
 This map displays where single-family zoning restrictions exist in Queen Anne's County
 [<img src="images/queenannemap.png?raw=true"/>](/project_probation/index)
 
+---
 
+### Analysis
 
+Overall, the results of my research suggest that single-family zoning restrictions are not highly prevalent in the Baltimore region. Despite this, these zoning policies are still associated with higher income areas, indicating that these zoning policies significantly affect the income distributions of various communities in the region. Regression analysis using OLS and Fixed effects was also performed to gain a more in-depth understanding of the effect that single-family zoning has on communities in the region. It was found that single-family zoning not only singnificantly shifted the income distribution towards those with the highest incomes, but it was also found that these zoning policies were also associated with higher median house-prices, and interestingly, lower educational attainment. To view more information about this research 
+<a href="https://github.com/jjustin1/jjustin1capstonepaper/blob/main/JustinJohnsonCapstoneGithub.pdf" target="_blank">Click Here.</a>
 
 
 
