@@ -15,33 +15,33 @@ Obtaining data and creating maps for this project came from multiple sources. Ob
 
 ### [Full Single-Family Zoning Map](/project_probation/index)
 This map shows the full display for all single-family zoned land in Central Maryland (measured by land-use data) 
-[<img src="images/Full Single-Family Zoning Map BMSA.png?raw=true"/>](/project_probation/index)
+[<img src="images/Full Single-Family Zoning Map BMSA.png?raw=true"/>]
 
 ---
 ### [Single-Family Chloropleth Map](/project_probation/index)
 This map displays the relationship between the proportion of single-family zoned properties in a census tract and the median household income of that area.
-[<img src="images/Chloroplethmap.png"/>](/project_probation/index)
+[<img src="images/Chloroplethmap.png"/>]
 
 ---
 ### [Median House Price Map](/project_probation/index)
 This map shows the median houseprice of the census tracts in the Baltimore region. 
-[<img src="images/housepricemap.png"/>](/project_probation/index)
+[<img src="images/housepricemap.png"/>]
 
 ---
 ### [Baltimore City SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore City 
-<img src="images/Baltcitymap.png?raw=true"/>](/project_probation/ind
+<img src="images/Baltcitymap.png?raw=true"/>]
 
 ---
 ### [Baltimore County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore County
-[<img src="images/Baltimorecountymap (2).png?raw=true"/>](/project_probation/index)
+[<img src="images/Baltimorecountymap (2).png?raw=true"/>]
 
 ---
 
 ### [Anne Arundel County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Anne Arundel County
-[<img src="images/Arundelmap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Arundelmap.png?raw=true"/>]
 
 ---
 ### [Howard County Zoning Map](/project_pnw/index)
@@ -51,17 +51,17 @@ This map displays where single-family zoning restrictions exist in Howard County
 ---
 ### [Carroll County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Carroll County
-[<img src="images/Carrollmap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Carrollmap.png?raw=true"/>]
 
 ---
 ### [Harford County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Harford County
-[<img src="images/Harfordmap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Harfordmap.png?raw=true"/>]
 
 ---
 ### [Queen Anne's County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Queen Anne's County
-[<img src="images/Queenannemap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Queenannemap.png?raw=true"/>]
 
 ---
 
