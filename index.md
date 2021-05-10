@@ -46,7 +46,7 @@ This map displays where single-family zoning restrictions exist in Anne Arundel 
 ---
 ### [Howard County Zoning Map](/project_pnw/index)
 This map displays where single-family zoning restrictions exist in Howard County
-[<img src="images/howardmap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Howardmap (2).png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Carroll County SFZ Map](/project_probation/index)
