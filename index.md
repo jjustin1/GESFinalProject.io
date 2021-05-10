@@ -1,6 +1,7 @@
 
 # Single-Family Zoning (SFZ) Map Portfolio 
-This page is designed to showcase the portfolio of maps I created for my final project in GES 687. This project centered around mapping and analyzing single-family zoning restriction policies in the Baltimore region, as well as analyzing the relationship they have with various community outcomes. Scroll below to view the zoning maps I created. 
+This page is designed to showcase the portfolio of maps I created for my final project in GES 687. This project centered around mapping and analyzing single-family zoning restriction policies in the Baltimore region, as well as analyzing the relationship they have with various community outcomes. Scroll below to view the zoning maps I created.
+
 ---
 ### [Full Single-Family Zoning Map](/project_probation/index)
 This map shows the full display for all single-family zoned land in Central Maryland (measured by land-use data) 
