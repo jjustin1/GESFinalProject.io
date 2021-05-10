@@ -29,6 +29,10 @@ This map shows the full display for all single-family zoned land in Central Mary
 This map displays the relationship between the proportion of single-family zoned properties in a census tract and the median household income of that area.
 [<img src="images/Chloroplethmap.png"/>](/project_probation/index)
 
+---
+### [Median House Price Map](/project_probation/index)
+This map shows the median houseprice of the census tracts in the Baltimore region. 
+[<img src="images/housepricemap.png"/>](/project_probation/index)
 
 ---
 ### [Baltimore City SFZ Map](/project_probation/index)
