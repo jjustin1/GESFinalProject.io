@@ -30,18 +30,18 @@ This map shows the median houseprice of the census tracts in the Baltimore regio
 ---
 ### [Baltimore City SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore City 
-<img src="images/Baltimorecitymap.png"/>](/project_probation/ind
+<img src="images/Baltcitymap.png?raw=true"/>](/project_probation/ind
 
 ---
 ### [Baltimore County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore County
-[<img src="images/baltimorecountymap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Baltimorecountymap (2).png?raw=true"/>](/project_probation/index)
 
 ---
 
 ### [Anne Arundel County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Anne Arundel County
-[<img src="images/annearundelmap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Arundelmap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Howard County Zoning Map](/project_pnw/index)
@@ -51,17 +51,17 @@ This map displays where single-family zoning restrictions exist in Howard County
 ---
 ### [Carroll County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Carroll County
-[<img src="images/carrollcountymap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Carrollmap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Harford County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Harford County
-[<img src="images/harfordcountymap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Harfordmap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Queen Anne's County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Queen Anne's County
-[<img src="images/queenannemap.png?raw=true"/>](/project_probation/index)
+[<img src="images/Queenannemap.png?raw=true"/>](/project_probation/index)
 
 ---
 
