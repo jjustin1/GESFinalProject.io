@@ -15,7 +15,7 @@ This map displays the relationship between the proportion of single-family zoned
 ---
 ### [Baltimore City SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore City 
-[<img src="images/Baltimorecitymap.png"/>](/project_probation/ind
+<img src="images/Baltimorecitymap.png"/>](/project_probation/ind
 
 ---
 ### [Baltimore County SFZ Map](/project_probation/index)
