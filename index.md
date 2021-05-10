@@ -9,39 +9,39 @@ This map shows the full display for all single-family zoned land in Central Mary
 ---
 ### [Baltimore City SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore City 
-[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/Baltimorecitymap.png"/>](/project_probation/index)
 
 
 ---
 ### [Baltimore County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Baltimore County
-[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/baltimorecountymap.png?raw=true"/>](/project_probation/index)
 
 ---
 
 ### [Anne Arundel County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Anne Arundel County
-[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/annearundelmap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Howard County Zoning Map](/project_pnw/index)
 This map displays where single-family zoning restrictions exist in Howard County
-[<img src="project_probation/LOI_Transit_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/howardmap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Carroll County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Carroll County
-[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/carrollcountymap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Harford County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Harford County
-[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/harfordcountymap.png?raw=true"/>](/project_probation/index)
 
 ---
 ### [Queen Anne's County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Queen Anne's County
-[<img src="project_probation/LOI_Walking_Isos.png?raw=true"/>](/project_probation/index)
+[<img src="images/queenannemap.png?raw=true"/>](/project_probation/index)
 
 
 ---
