@@ -71,7 +71,15 @@ Overall, the results of my research suggest that single-family zoning restrictio
 <a href="https://github.com/jjustin1/jjustin1capstonepaper/blob/main/JustinJohnsonCapstoneGithub.pdf" target="_blank">Click Here.</a>
 
 
+---
 
+### Sources
 
+<a href="https://planning.maryland.gov/Pages/OurProducts/DownloadFiles.aspx" target="_blank">Maryland SDAT (Zoning Data).</a>
 
+<br><br/>
+<a href="https://www.socialexplorer.com/data/ACS2019_5yr/metadata/?ds=ACS19_5yr" target="_blank">American Community Survey (Demographic Data).</a>
+
+<br><br/>
+<a href="https://github.com/jjustin1/GESFinalProject.io/blob/master/GESFinalprojectRmarkdown.pdf" target="_blank">Data Collection Process (R Markdown).</a>
 
