@@ -1,5 +1,7 @@
 
 # Single-Family Zoning (SFZ) Map Portfolio 
+
+### Purpose
 This page is designed to showcase the portfolio of maps I created for my final project in GES 687. This project centered around mapping and analyzing single-family zoning restriction policies in the Baltimore region, as well as analyzing the relationship they have with various community outcomes. Scroll below to view the zoning maps I created, and scroll to the bottom to view my analysis of the results.
 
 ---
