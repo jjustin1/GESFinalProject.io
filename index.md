@@ -7,6 +7,9 @@ This page is designed to showcase the portfolio of maps I created for my final p
 Scroll below to view the zoning maps I created, and scroll to the bottom to view my analysis of the results.
 
 ---
+### Write-Up 
+Single-family zoning restrictions are zoning policies limiting residential development exclusively to detached, single-family homes (a good example is the traditional detached suburban home). There is heavy debate among whether these policies should exist because many theorize that these policies diminish access to these communities for households that are less likely to use detached single-family housing such as thsoe that are lower-income, multigenerational, and ethnic minorities. Many speculate that adding more mixed-use zoning can greatly improve the economic sustainability of communities, increase diversity, and decrease inequality. This paper will attempt to map this phenomenon by measuring the relationship existing between single-family zoning and various community demographics. 
+
 
 ### Methodology
 
