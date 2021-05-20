@@ -69,7 +69,7 @@ This map displays where single-family zoning restrictions exist in Howard County
 ---
 ### [Carroll County SFZ Map](/project_probation/index)
 This map displays where single-family zoning restrictions exist in Carroll County
-[<img src="images/Carrollmap.png?raw=true"/>]
+<img src="images/Carrollmap.png?raw=true"/>
 
 ---
 ### [Harford County SFZ Map](/project_probation/index)
