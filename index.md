@@ -25,9 +25,16 @@ This map shows the full display for all single-family zoned land in Central Mary
 <img src="images/Full Single-Family Zoning Map BMSA.png?raw=true"/>
 
 ---
-### [Single-Family Chloropleth Map](/project_probation/index)
+### [Single-Family Zoning & Income Chloropleth Map](/project_probation/index)
 This map displays the relationship between the proportion of single-family zoned properties in a census tract and the median household income of that area.
 <img src="images/Chloroplethmap.png"/>
+
+---
+### [Single-Family Zoning & Educational Attainment Chlorlopleth Map](/project_probation/index) 
+This chloropleth map displays the relationship between the proportion of single-family zoned properties in a census tract and the proportion of that census tract that has obtained a college degree. 
+<img src="images/Single Family zoning and Education chloropleth.png"/>
+
+
 
 ---
 ### [Median House Price Map](/project_probation/index)
