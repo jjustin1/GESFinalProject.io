@@ -15,10 +15,8 @@ Single-family zoning restrictions are zoning policies limiting residential devel
 ### Methodology
 
 The output for this project was created by taking data from various sources holding information on zoning regulations and community demographics, and then using various statistical software to visualize data into the maps shown below. 
-<br><br/>
 Obtaining data on zoning and community demographics were taken from the Maryland Department of Planning and the American Community Survey. Shapefiles on zoning was taken using the State Department of Assessments and Taxation (SDAT) dataset which contains data on most maryland properties detailing zoning and land use codes. Land-uses maps were converted into centroids to specifcally count the number of residential properties with single-family zoning restrictions in the Baltimore region. 
 Community demographics such as race, income, and education were taken from the ACS survey, an annual survey that obtains data on millions of U.S. households. ACS data was loaded into R statistical software using the tidycensus program, and was then transformed into shapefiles that could be loaded into QGIS Mapping software. 
-<br><br/>
 Once these shapefiles were created, both the demographic data and zoning maps data were loaded into QGIS and merged using the intersections command to create bivariate cholorpleth maps showing the relationship between single-family zoning, income, and educational attainment amongst the population. 
 
 ---
